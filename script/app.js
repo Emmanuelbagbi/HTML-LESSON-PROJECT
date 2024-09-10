@@ -1,41 +1,79 @@
-document.addEventListener("DOMContentLoaded", async () => {
-    const characterList = document.getElementById('character-list');
-    const characterName = document.getElementById('character-name');
-    const characterGender = document.getElementById('character-gender');
-    const characterHeight = document.getElementById('character-height');
-    const errorMessage = document.getElementById('error-message');
+const images = [
+    "/images/Luke-Skywalker.jpeg", 
+    "/images/C-3PO.jpeg", 
+    "/images/R2-D2.jpeg", 
+    "/images/Darth-vader.jpeg", 
+    "/images/Leia-Organa.png", 
+    "/images/Owen-Lars.jpeg", 
+    "/images/Beru-Whitesun-Lars.jpeg", 
+    "/images/R5-D4.jpeg", 
+    "/images/Biggs-Darklighter.jpeg", 
+    "/images/Obi-Wan-Kenobi.jpeg",
+    "/images/multi.gif"
+];
 
-    try {
-        const response = await fetch('https://swapi.dev/api/people/');
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        const characters = data.results;
 
-        characters.forEach(character => {
-            try {
-                const characterElement = document.createElement('p');
-                characterElement.textContent = character.name;
-                characterElement.addEventListener('click', () => displayCharacterDetails(character));
-                characterList.appendChild(characterElement);
-            } catch (error) {
-                console.error('Error creating character element:', error);
-                errorMessage.textContent = 'Error loading some characters. Please try again later.';
-            }
-        });
-    } catch (error) {
-        console.error('Error fetching characters:', error);
-        errorMessage.textContent = 'Error loading characters. Please try again later.';
-    }
-    function displayCharacterDetails(character) {
-        try {
-            characterName.textContent = `Name: ${character.name}`;
-            characterGender.textContent = `Gender: ${character.gender}`;
-            characterHeight.textContent = `Height: ${character.height}`;
-        } catch (error) {
-            console.error('Error displaying character details:', error);
-            errorMessage.textContent = 'Error displaying character details. Please try again.';
-        }
-    }
-});
+function main() {
+
+    fetch("https://swapi.dev/api/people")
+    .then (res => {
+        if (!res.ok) {
+            throw Error ("Error fetching data...")
+        } 
+        return res.json()
+    })
+    .then (data => {
+        const html = data.results
+        .map((people, index) => {
+            return ` 
+            <div id=${index} class="container">
+                <div class="card">
+                    <img class="card-img" src=${images[index]} alt="${people.name}">
+                    <div class="card-content">
+                        <button class="open-btn" data-modal-target=${index}>${people.name}</button>
+                    </div>
+                </div> 
+            </div>
+            <div class="modal-container" id=${index}>
+                <div class="modal">
+                    <img src=${images[index]} alt="Starwars Icon">
+                    <h1>${people.name}</h1>
+                    <ul>
+                        <li>Gender: <span style="color:blue">${people.gender  === "n/a" ? "humanoid" : people.gender}</span></li>
+                        <li>Height: <span style="color:blue">${people.height}</span></li>
+                    </ul>
+                    <button data-close-button class="close-btn">Close</button>
+                </div>
+            </div>
+            `;
+        }).join('');
+        
+        document.querySelector('.grid').innerHTML = html;
+
+        const open = document.querySelectorAll("[data-modal-target]")
+        const close = document.querySelectorAll(".close-btn")
+        const modal_container = document.querySelectorAll(".modal-container")
+
+
+        open.forEach((button, index) => {
+            button.addEventListener("click", () => {
+            modal_container[index].classList.add("show");
+            });
+        })
+
+        close.forEach((button, index) => {
+            button.addEventListener("click", () => {
+            modal_container[index].classList.remove("show");
+            });
+        })
+       
+    })
+    .catch (err => {
+        console.log(err)
+    });
+
+}
+
+
+main();
+
