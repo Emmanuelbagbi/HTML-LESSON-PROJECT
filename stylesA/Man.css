@@ -60,7 +60,7 @@ head {
 @media only screen and (max-width: 850px) {
     .container {
         width: 100%;
-        background-color: rgb(255, 255, 255);
+        /* background-color: rgb(255, 255, 255); */
         border-radius: 1rem;
         overflow: hidden;
         box-shadow: 0 4rem 8rem rgba(0, 0, 0, 0.8);
@@ -259,7 +259,7 @@ head {
     opacity: 1;
 }
 .modal {
-    background: rgba(255, 255, 255, 0.416);
+    background: rgba(255, 255, 255, 0.304);
     background-repeat: no-repeat;
     height: 480px;
     max-width: 100%;
