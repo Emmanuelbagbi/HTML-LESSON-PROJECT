@@ -39,6 +39,7 @@ body {
     justify-content: center;
     gap: 4%;
     margin-bottom: 60px;
+    /* border: 1px solid white; */
 }
 .icon-holder{
     width: 78%;
@@ -141,7 +142,7 @@ body {
     background-color: black;
     padding: 20px;
     border-radius: 5px;
-    border: 2px solid white;
+    /* border: 2px solid white; */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     overflow-y: scroll;
     max-height: 400px;
@@ -184,3 +185,144 @@ body {
     margin: 10px 0;
 }
 
+@media screen and (max-width: 1071px) {
+    .socials{
+        width: 38%;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4%;
+        margin-bottom: 60px;
+        /* border: 1px solid white; */
+    }
+    .icon-holder{
+        width: 78%;
+        height: 30px;
+        border-right: 1px solid gray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10%;
+    }
+    .div-header1{
+        width: 85%;
+        height: 140px;
+        display: flex;
+        align-items: center;
+        /* border: 1px solid white; */
+    }
+    .logo{
+        width: 58%;
+        height: 140px;
+        background-image: url(/images/sw_logo_stacked_2x-52b4f6d33087_7ef430af.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 40%;
+    }
+}
+
+@media screen and (max-width: 929px) {
+    .div-header1{
+        width: 90%;
+        height: 140px;
+        display: flex;
+        align-items: center;
+        /* border: 1px solid white; */
+    }
+    .logo{
+        width: 67%;
+        height: 140px;
+        background-image: url(/images/sw_logo_stacked_2x-52b4f6d33087_7ef430af.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 45%;
+    }
+}
+
+@media screen and (max-width: 928px) {
+    .socials{
+        width: 50%;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4%;
+        margin-bottom: 60px;
+        padding: 5px;
+        /* border: 1px solid white; */
+    }
+}
+@media screen and (max-width: 928px) {
+    .search-login{
+        width: 38%;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10%;
+        margin-bottom: 40px;
+        /* border: 2px solid white; */
+    }
+}
+
+@media screen and (max-width: 840px){
+    .div-header1{
+        width: 100%;
+        height: 140px;
+        display: flex;
+        align-items: center;
+        /* border: 1px solid white; */
+    }
+    .icon-holder i{
+        font-size: 20px;
+    }
+    .icon-holder svg{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 762px) {
+    .search-login{
+        width: 45%;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10%;
+        margin-bottom: 40px;
+        /* border: 2px solid white; */
+    }
+    .search{
+        font-weight: bold;
+        font-size: 14px;
+    }
+    .socials{
+        width: 50%;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4%;
+        margin-bottom: 60px;
+        padding: 5px;
+        /* border: 1px solid white; */
+    }
+    .social i{
+        font-size: 11px;
+    }
+    
+}
+@media screen and (max-width: 691px) {
+    .bi-tiktok{
+        display: none;
+    }
+    .div-header2{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-content: space-between;
+    }
+}

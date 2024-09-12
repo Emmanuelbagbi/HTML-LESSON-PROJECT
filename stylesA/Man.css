@@ -308,3 +308,7 @@ head {
     border: 2px solid black;
     background-color: rgb(255, 255, 255);
 } 
+
+@media screen and (max-width: 1119px) {
+    
+}
